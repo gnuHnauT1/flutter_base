@@ -1,10 +1,5 @@
 import 'package:nylo_framework/nylo_framework.dart';
 
-/* Toast Notification Styles
-|--------------------------------------------------------------------------
-| Define your toast notification styles here.
-|-------------------------------------------------------------------------- */
-
 class NyToastNotificationStyleMetaHelper extends ToastNotificationStyleMetaHelper {
 
   NyToastNotificationStyleMetaHelper(super.style);

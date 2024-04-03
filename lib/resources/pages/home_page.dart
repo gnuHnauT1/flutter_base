@@ -1,10 +1,9 @@
 import 'package:nylo_framework/nylo_framework.dart';
-import 'package:nylo_framework/theme/helper/ny_theme.dart';
+
 import 'package:flutter/material.dart';
-import '/bootstrap/extensions.dart';
+
 import '/resources/widgets/logo_widget.dart';
 import '/resources/widgets/safearea_widget.dart';
-import '/bootstrap/helpers.dart';
 import '/app/controllers/home_controller.dart';
 
 class HomePage extends NyStatefulWidget<HomeController> {
@@ -16,16 +15,14 @@ class HomePage extends NyStatefulWidget<HomeController> {
 class _HomePageState extends NyState<HomePage> {
   /// The boot method is called before the [view] is rendered.
   /// You can override this method to perform any async operations.
-  /// Try uncommenting the code below.
-  // @override
-  // boot() async {
-  //   dump("boot");
-  //   await Future.delayed(Duration(seconds: 2));
-  // }
+  @override
+  boot() async {
+    return super.boot();
+  }
 
   /// If you would like to use the Skeletonizer loader,
   /// uncomment the code below.
-  // bool get useSkeletonizer => true;
+  //bool get useSkeletonizer => true;
 
   /// The Loading widget is shown while the [boot] method is running.
   /// You can override this method to show a custom loading widget.
@@ -36,7 +33,6 @@ class _HomePageState extends NyState<HomePage> {
   //   );
   // }
 
-  /// The [view] method should display your page.
   @override
   Widget view(BuildContext context) {
     return Scaffold(
@@ -57,9 +53,30 @@ class _HomePageState extends NyState<HomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Logo(),
-              Text("documentation".tr())
-                  .onTap(() => NyLanguageSwitcher.showBottomModal(context)),
-
+              Text("documentation".tr()).onTap(() async => NyLanguageSwitcher.showBottomModal(context
+                    /*dropdownBuilder: (builder) {
+                      return DropdownButton<String>(
+                        items: languages.map<DropdownMenuItem<String>>(
+                            (Map<String, dynamic> value) {
+                          MapEntry<String, dynamic> item = value.entries.first;
+                          Widget child = Text(item.value);
+                          if (widget.dropdownBuilder != null) {
+                            child = widget.dropdownBuilder!({
+                              "locale": item.key,
+                              "name": item.value,
+                            });
+                          }
+                          return DropdownMenuItem<String>(
+                            value: item.key,
+                            child: child,
+                            onTap: (){},
+                            alignment: AlignmentDirectional.centerStart,
+                          );
+                        }).toList(),
+                        onChanged: (String? value) {},
+                      );
+                    },*/
+                  )),
               /*Text(
                 getEnv("APP_NAME"),
               ).displayMedium(context),

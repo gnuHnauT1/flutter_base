@@ -26,29 +26,27 @@ class FIcon extends StatelessWidget {
   final String icon;
 
   /// tone màu icon thứ nhất [twotone]
-  final Color ?primaryColor;
+  final Color? primaryColor;
 
   /// tone màu icon thứ 2 [twotone]
-  final Color ?secondaryColor;
+  final Color? secondaryColor;
 
   /// màu icon mặc định là màu grey10
-  final Color ?color;
+  final Color? color;
 
   /// size icon, mặc định là 24
-  final double ?size;
+  final double? size;
 
   @override
   Widget build(BuildContext context) {
     final _defaultIconStyle = FDefaultIconStyle.of(context);
 
-    final _effectiveColor = color ?? _defaultIconStyle?.color ?? FColors.grey10;
     final _effectiveSize = size ?? _defaultIconStyle?.size ?? 24;
 
     return SvgPicture.string(
       icon,
       height: _effectiveSize,
       width: _effectiveSize,
-      color: _effectiveColor,
     );
   }
 }

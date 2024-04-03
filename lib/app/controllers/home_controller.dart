@@ -10,19 +10,6 @@ class HomeController extends Controller {
     await launchUrl(Uri.parse("https://nylo.dev/docs"));
   }
 
-  onTapGithub() async {
-    await launchUrl(Uri.parse("https://github.com/nylo-core/nylo"));
-  }
-
-  onTapChangeLog() async {
-    await launchUrl(Uri.parse(
-        "https://github.com/nylo-core/nylo/releases"));
-  }
-
-  onTapYouTube() async {
-    await launchUrl(Uri.parse("https://m.youtube.com/@nylo_dev"));
-  }
-
   showAbout() {
     showAboutDialog(
       context: context!,

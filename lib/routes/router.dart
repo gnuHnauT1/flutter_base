@@ -1,30 +1,21 @@
-import 'package:flutter_app/routes/guards/auth_route_guard.dart';
-
+import 'package:flutter_app/resources/pages/splash_page.dart';
 import '/resources/pages/home_page.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
-/* App Router
+/*
 |--------------------------------------------------------------------------
+| App Router
 | * [Tip] Create pages faster 🚀
 | Run the below in the terminal to create new a page.
-| "dart run nylo_framework:main make:page profile_page"
+| "flutter pub run nylo_framework:main make:page profile_page"
 | Learn more https://nylo.dev/docs/5.20.0/router
-|-------------------------------------------------------------------------- */
+|--------------------------------------------------------------------------
+*/
 
 appRouter() => nyRoutes((router) {
-  router.route(HomePage.path, (context) => HomePage(), initialRoute: true);
-  // Add your routes here
+      router.route(SplashPage.path, (context) => SplashPage());
+      // Add your routes here
 
-  // router.route(NewPage.path, (context) => NewPage(), transition: PageTransitionType.fade);
-
-  //Example using grouped routes
-  router.group(() => {
-    "route_guards": [AuthRouteGuard()],
-    "prefix": "/dashboard"
-  }, (router) {
-
-
-    // Add new route Page here
-    /*router.route(AccountPage.path, (context) => AccountPage());*/
-  });
-});
+      // router.route(NewPage.path, (context) => NewPage(), transition: PageTransitionType.fade);
+      router.route(HomePage.path, (context) => HomePage());
+    });

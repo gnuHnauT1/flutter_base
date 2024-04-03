@@ -3,21 +3,11 @@ import 'package:flutter_app/app/constants/response_status.dart';
 import 'package:flutter_app/app/models/login_model.dart';
 import 'package:flutter_app/app/models/register_model.dart';
 import 'package:flutter_app/app/models/response_data.dart';
-import 'package:flutter_app/config/decoders.dart';
-
 import 'package:nylo_framework/nylo_framework.dart';
 
 class AuthApiService extends NyApiService{
   AuthApiService({BuildContext? buildContext}) : super(
-    buildContext,
-    decoders: modelDecoders,
-    baseOptions: (BaseOptions baseOptions) {
-      return baseOptions
-        ..connectTimeout = Duration(seconds: 5)
-        ..sendTimeout = Duration(seconds: 5)
-        ..receiveTimeout = Duration(seconds: 5);
-    },
-  );
+    buildContext,);
   @override
   String get baseUrl => getEnv('API_BASE_URL');
 

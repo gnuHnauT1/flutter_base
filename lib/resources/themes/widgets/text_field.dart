@@ -145,7 +145,7 @@ class _FTextFieldState extends State<FTextField> {
     //         widget.keyboardType == TextInputType.number ||
     //         widget.keyboardType ==
     //             TextInputType.numberWithOptions(decimal: true));
-    final builder = widget.buildCounter ?? (_, {required int currentLength, required bool isFocused, int? maxLength}) => Container();
+    //final builder = widget.buildCounter ?? (_, {required int currentLength, required bool isFocused, int? maxLength}) => Container();
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,

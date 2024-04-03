@@ -3,20 +3,11 @@ import 'package:flutter_app/app/constants/response_status.dart';
 import 'package:flutter_app/app/models/reset_password_model.dart';
 import 'package:flutter_app/app/models/response_data.dart';
 import 'package:flutter_app/app/models/user.dart';
-import 'package:flutter_app/config/decoders.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
 class UserApiService extends NyApiService{
   UserApiService({BuildContext? buildContext}) : super(
-    buildContext,
-    decoders: modelDecoders,
-    baseOptions: (BaseOptions baseOptions) {
-      return baseOptions
-        ..connectTimeout = Duration(seconds: 5)
-        ..sendTimeout = Duration(seconds: 5)
-        ..receiveTimeout = Duration(seconds: 5);
-    },
-  );
+    buildContext,);
   @override
   String get baseUrl => getEnv('API_BASE_URL');
 

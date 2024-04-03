@@ -4,22 +4,12 @@ import 'package:flutter_app/app/models/response_data.dart';
 import 'package:flutter_app/app/models/user.dart';
 import 'package:flutter_app/config/storage_keys.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-import '/config/decoders.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
 
 class ApiService extends NyApiService {
-
   ApiService({BuildContext? buildContext}) : super(
-      buildContext,
-      decoders: modelDecoders,
-      baseOptions: (BaseOptions baseOptions) {
-        return baseOptions
-                  ..connectTimeout = Duration(seconds: 5)
-                  ..sendTimeout = Duration(seconds: 5)
-                  ..receiveTimeout = Duration(seconds: 5);
-      },
-  );
+      buildContext,);
 
   @override
   String get baseUrl => getEnv('API_BASE_URL');
@@ -52,16 +42,6 @@ class ApiService extends NyApiService {
     );
   }
 
-  /* Helpers
-  |-------------------------------------------------------------------------- */
-
-
-  /* Authentication Headers
-  |--------------------------------------------------------------------------
-  | Set your auth headers
-  | Authenticate your API requests using a bearer token or any other method
-  |-------------------------------------------------------------------------- */
-
   @override
   Future<RequestHeaders> setAuthHeaders(RequestHeaders headers) async {
     String? myAuthToken = await StorageKey.userToken.read();
@@ -71,25 +51,10 @@ class ApiService extends NyApiService {
     return headers;
   }
 
-
-  /* Should Refresh Token
-  |--------------------------------------------------------------------------
-  | Check if your Token should be refreshed
-  | Set `false` if your API does not require a token refresh
-  |-------------------------------------------------------------------------- */
-
   @override
   Future<bool> shouldRefreshToken() async {
     return false;
   }
-
-
-  /* Refresh Token
-  |--------------------------------------------------------------------------
-  | If `shouldRefreshToken` returns true then this method
-  | will be called to refresh your token. Save your new token to
-  | local storage and then use the value in `setAuthHeaders`.
-  |-------------------------------------------------------------------------- */
 
   @override
   refreshToken(Dio dio) async {
@@ -98,15 +63,6 @@ class ApiService extends NyApiService {
     await StorageKey.userToken.store(response['token']);
   }
 
-
-  /* Display a error
-  |--------------------------------------------------------------------------
-  | This method is only called if you provide the API service
-  | with a [BuildContext]. Example below:
-  | api<ApiService>(
-  |        request: (request) => request.myApiCall(),
-  |         context: context);
-  |-------------------------------------------------------------------------- */
 
   displayError(DioException dioException, BuildContext context) {
     showToastNotification(context,

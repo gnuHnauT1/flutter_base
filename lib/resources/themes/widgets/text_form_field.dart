@@ -4,7 +4,6 @@ import 'package:flutter_app/resources/themes/styles/typo_skin.dart';
 
 import '../styles/input_size.dart';
 import '../base_component.dart';
-import 'form.dart';
 
 class FTextFormField extends FFormField<String> {
 
