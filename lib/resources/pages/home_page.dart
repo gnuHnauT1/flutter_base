@@ -1,3 +1,4 @@
+import 'package:flutter_app/resources/widgets/customized_ny_language_switcher.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
 import 'package:flutter/material.dart';
@@ -53,7 +54,7 @@ class _HomePageState extends NyState<HomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Logo(),
-              Text("documentation".tr()).onTap(() async => NyLanguageSwitcher.showBottomModal(context
+              Text("documentation".tr()).onTap(() async => CustomizedNyLanguageSwitcher.showBottomModal(context
                     /*dropdownBuilder: (builder) {
                       return DropdownButton<String>(
                         items: languages.map<DropdownMenuItem<String>>(
