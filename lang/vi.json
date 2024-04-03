@@ -1,0 +1,9 @@
+{
+  "documentation": "Tài liệu",
+  "Select your language": "Chọn ngôn ngữ",
+  "vi": "Tiếng Việt",
+  "en": "Tiếng Anh",
+  "Home Page": "Trang chủ",
+  "micro-framework for Flutter": "micro-framework for Flutter",
+  "hello": "hello {{name}}"
+}
